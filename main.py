@@ -1,22 +1,40 @@
 import base64
 
-print("=== Base64 Encoder/Decoder ===")
+while True:
 
-choice = input("Encode or Decode? (e/d): ")
+    print("\n=== Base64 Encoder/Decoder ===")
+    print("1. Encode")
+    print("2. Decode")
+    print("3. Exit")
 
-if choice == "e":
-    text = input("Enter text: ")
+    choice = input("Choose option: ")
 
-    encoded = base64.b64encode(text.encode()).decode()
+    if choice == "1":
 
-    print("Encoded:", encoded)
+        text = input("Enter text: ")
 
-elif choice == "d":
-    text = input("Enter Base64 text: ")
+        encoded = base64.b64encode(text.encode()).decode()
 
-    decoded = base64.b64decode(text.encode()).decode()
+        print("\nEncoded Text:")
+        print(encoded)
 
-    print("Decoded:", decoded)
+    elif choice == "2":
 
-else:
-    print("Invalid option")
+        text = input("Enter Base64 text: ")
+
+        try:
+            decoded = base64.b64decode(text.encode()).decode()
+
+            print("\nDecoded Text:")
+            print(decoded)
+
+        except:
+            print("\nInvalid Base64 input!")
+
+    elif choice == "3":
+
+        print("Goodbye!")
+        break
+
+    else:
+        print("\nInvalid choice!")
